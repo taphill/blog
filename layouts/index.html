@@ -1,5 +1,12 @@
 {{ define "main" }}
+  {{ partial "header/home-header.html" }}
   <main>
-    <p>cool!</p>
+    <div class="wrapper">
+      <ul>
+        {{ range .Site.RegularPages }}
+          {{ .Render "posts" }}
+        {{ end }}
+      </ul>
+    </div>
   </main>
 {{ end }}

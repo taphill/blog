@@ -1,0 +1,10 @@
+<li class="flow">
+  <h2>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </h2>
+  <div>
+    <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+    <p>{{ .ReadingTime }} minute read</p>
+  </div>
+  <p>{{ .Summary }}</p>  
+</li>
