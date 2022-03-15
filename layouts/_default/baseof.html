@@ -15,9 +15,16 @@
       href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    {{ range .Site.Params.css }}
-      <link rel="stylesheet" href="{{ . | absURL }}">
-    {{ end }}
+    {{ $reset := resources.Get "stylesheets/reset.css" | minify }}
+    {{ $base := resources.Get "stylesheets/base.css" | minify }}
+    {{ $utilities := resources.Get "stylesheets/utilities.css" | minify }}
+    {{ $blocks := resources.Get "stylesheets/blocks.css" | minify }}
+    <style>
+      {{ $reset.Content | safeCSS }}
+      {{ $base.Content | safeCSS }}
+      {{ $utilities.Content | safeCSS }}
+      {{ $blocks.Content | safeCSS }}
+    </style>
   </head>
   <body>
     <div id="root">
@@ -26,8 +33,10 @@
 
       {{ partialCached "site-footer.html" . }}
     </div>
-    {{ range .Site.Params.js }}
-      <script src="{{ . | absURL }}"></script>
-    {{ end }}
+
+    {{ $toggle := resources.Get "javascript/toggleColorMode.js" | minify }}
+    <script>
+      {{ $toggle.Content | safeJS }}
+    </script>
   </body>
 </html>
