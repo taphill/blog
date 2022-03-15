@@ -26,5 +26,8 @@
 
       {{ partialCached "site-footer.html" . }}
     </div>
+    {{ range .Site.Params.js }}
+      <script src="{{ . | absURL }}"></script>
+    {{ end }}
   </body>
 </html>

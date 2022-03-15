@@ -9,6 +9,9 @@ title = 'Taylor Phillips'
     "stylesheets/utilities.css",
     "stylesheets/blocks.css"
   ]
+  js = [
+    "javascript/toggleColorMode.js",
+  ]
 
 [markup]
   [markup.highlight]
