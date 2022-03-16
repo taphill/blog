@@ -112,7 +112,8 @@ ul {
 
 header,
 footer {
-  margin: 5rem 0;
+  padding-top: var(--size-800);
+  padding-bottom: var(--size-400);
 }
 
 pre {
